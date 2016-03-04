@@ -1,11 +1,19 @@
 def cipher(string, shift)
-	alphabet=('a'...'z').to_a
+	alp=('a'..'z').to_a
 	new_words=""
-	string=string.lowercase
+	string=string.downcase
 
-	for string.each_char do |i|
-		i+=shift
-		if alphabet include? i;
-			new_words +=i
-		end
+	string.each_char do |j|
+		if !alp.include?(j)
+			new_words +=j
+		else
+			new_words += alp[alp.index(j) + shift]
+			puts j
+			
 	end
+end
+
+	return new_words.capitalize
+end
+
+puts cipher('What is this?', 1)
